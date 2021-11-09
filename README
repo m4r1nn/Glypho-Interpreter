@@ -1,0 +1,24 @@
+    Burcea Marian-Gabriel 334CA --- Glypho Interpreter
+
+    I chose for this project python programming language to make the interpreter
+work even with large numbers operations (and java is a little boring to code in).
+    For the conversions between bases I used the python general function int(number,
+base) --- from base b to base 10, and another implemented function convert(number,
+base) --- from base 10 to base b, the result being a the string representation of
+the requested number.
+    The decode function converts the instruction into requested form (containing
+only '0', '1', '2', '3'), using a dictionary as a frequency vector.
+    The input is read using sys library functions, and the base is set to 10 if
+it's missing. Firstly I split the text into 4-length words and check if the last one
+(and by default all) has the correct length. Then I check the parenthesis order
+and matches using a vector as a stack. I also save all the matches between
+left-parenthesis (L-brace) and right-parenthesis (R-brace) in both directions
+(L->R, R->L) using a dictionary.
+    The main handler (execute) receives an instruction and executes it. Input
+numbers are converted to base 10 and all the operations are made in this base.
+The output is then converted back using the functions explained at the beginning.
+The main data structure is a python dequeue which lets me push and pop in every
+direction and also has the rotate functionalities for Rot and RRot commands.
+Every instruction that needs to access the queue checks if there are enough elements
+to execute the commnad.
+    Hope I haven't forgotten anything :)
